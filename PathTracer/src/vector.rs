@@ -1,4 +1,3 @@
-use std::ops;
 
 pub struct Vector
 {
@@ -38,13 +37,24 @@ impl Vector
         }
     }
 
+    pub fn normalize(&mut self) -> &mut Self
+    {
+        let vecLen : f64 = (self.x * self.x + self.y * self.y + self.z * self.z).sqrt();
+
+        self.x = self.x / vecLen;
+        self.y = self.y / vecLen;
+        self.z = self.z / vecLen;
+
+        self
+    }
+
     pub fn dotProduct(&self, vec2 : Vector) -> f64
     {
         self.x * vec2.x + self.y * vec2.y + self.z * vec2.z
     }
 }
 
-impl ops::Add for Vector{
+impl std::ops::Add for Vector{
     type Output = Vector;
 
     fn add(self, vec2: Vector) -> Vector {
@@ -57,7 +67,7 @@ impl ops::Add for Vector{
     }
 }
 
-impl ops::Sub for Vector {
+impl std::ops::Sub for Vector {
     type Output = Vector;
 
     fn sub(self, vec2: Vector) -> Vector {
@@ -70,7 +80,7 @@ impl ops::Sub for Vector {
     }
 }
 
-impl  ops::Mul for Vector {
+impl  std::ops::Mul<f64> for Vector {
     type Output = Vector;
 
     fn mul(self, constant : f64) -> Vector {

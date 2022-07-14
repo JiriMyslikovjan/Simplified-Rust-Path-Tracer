@@ -27,7 +27,7 @@ impl Ray
 
     pub fn setDest(&mut self ,x : f64, y : f64, z : f64) -> &mut Self
     {
-        self.dest.setVector(x, y, z);
+        self.dest.setVector(x, y, z).normalize();
 
         self
     }

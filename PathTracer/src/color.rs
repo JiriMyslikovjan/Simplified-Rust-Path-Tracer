@@ -7,13 +7,15 @@ pub struct Color
 
 impl Color
 {
+    // Converts hexadecimal values to RGB values
+    // TODO: Color clamping, gamma correction
     pub fn new(hexCode : i32) -> Self
     {
         Color
         {
-            r : ((hexCode >> 16) & 0xFF) / 255.0,
-            b : ((hexCode >> 8) & 0xFF) / 255.0,
-            g : (hexCode & 0xFF) / 255.0
+            r : ((hexCode >> 16) & 0xFF) as f64 / 255.0,
+            g : ((hexCode >> 8) & 0xFF) as f64 / 255.0,
+            b : (hexCode & 0xFF) as f64 / 255.0
         }
     }
 
