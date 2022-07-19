@@ -27,6 +27,7 @@ impl Ray
 
     pub fn setDest(&mut self ,x : f64, y : f64, z : f64) -> &mut Self
     {
+        // Normalize destination vector to avoid errors in calculations
         self.dest.setVector(x, y, z).normalize();
 
         self

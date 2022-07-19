@@ -1,8 +1,13 @@
 mod vector;
 mod ray;
 mod color;
+mod material;
+mod object;
 
 fn main() {
+
+    //TODO: materials (diffuse, specular, refractive), image representation, tracing,
+    //      writing to PPM, object representation and shapes, scene representation
 
     let mut r = ray::Ray::new();
 
